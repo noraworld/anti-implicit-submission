@@ -1,0 +1,13 @@
+{
+  "name": "Anti Implicit Submission",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Prevent to submit forms with the enter key",
+  "homepage_url": "https://github.com/noraworld/anti-implicit-submission",
+
+  "content_scripts": [{
+    "all_frames": true,
+    "matches": ["<all_urls>"],
+    "js": ["src/inject.js"]
+  }]
+}
