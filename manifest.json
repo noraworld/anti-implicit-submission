@@ -12,11 +12,11 @@
   "content_scripts": [{
     "all_frames": true,
     "matches": ["<all_urls>"],
-    "js": ["src/js/inject.js"]
+    "js": ["inject.js"]
   }],
 
   "background": {
-    "scripts": ["src/js/background.js"]
+    "scripts": ["background.js"]
   },
 
   "browser_action": {

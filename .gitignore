@@ -1,1 +1,8 @@
 src/lib/jquery.js
+node_modules
+background.js
+inject.js
+jquery.js
+options.css
+options.html
+options.js

@@ -1,0 +1,36 @@
+{
+  "name": "anti-implicit-submission",
+  "version": "0.0.1",
+  "description": "Prevent to submit forms with the enter key",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noraworld/anti-implicit-submission.git"
+  },
+  "keywords": [
+    "anti",
+    "implicit",
+    "submission",
+    "prevent",
+    "enter",
+    "submit"
+  ],
+  "author": "noraworld",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noraworld/anti-implicit-submission/issues"
+  },
+  "homepage": "https://github.com/noraworld/anti-implicit-submission#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.0.1"
+  }
+}
