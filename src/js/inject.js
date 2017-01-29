@@ -24,11 +24,11 @@
         isPressEnterTwice = false;
       }
       key = event.key;
-    }
 
-    if ((isPressEnterTwice === false) && (event.key === 'Enter') && (exceptions.indexOf(window.location.href) < 0)) {
-      event.preventDefault();
-      return false;
+      if ((isPressEnterTwice === false) && (event.key === 'Enter') && (exceptions.indexOf(window.location.href) < 0)) {
+        event.preventDefault();
+        return false;
+      }
     }
   }, true);
 
