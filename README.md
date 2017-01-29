@@ -1,4 +1,8 @@
 # Anti Implicit Submission
+Prevent to submit a form with the enter key.
+
+## Description
+The browser is going to submit a form with the enter key. However, sometimes I press the enter key to submit a form by mistake. So, this extension disables the implicit submission with the enter key. To submit a form only with a key, press the super key and the enter key, then press the enter key twice: **`⌘ + ↲, ↲, ↲`**. The super key is the `ctrl` key on Windows and Linux, or the `command` key on macOS.
 
 ## Download
 
