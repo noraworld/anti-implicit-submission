@@ -47,5 +47,14 @@
     }
   }, true);
 
+  let input = document.querySelectorAll('input');
+  for (let i = 0; i < input.length; i++) {
+    input[i].addEventListener('blur', function(event) {
+      // console.log('blur');
+      isPressSuperEnter = false;
+      unlocked = false;
+    });
+  }
+
   chrome.runtime.sendMessage({load: true}, function(response) {});
 })();
