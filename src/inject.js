@@ -38,16 +38,16 @@
         confirm = window.prompt('Are you sure?');
         switch (confirm) {
           case 'sure':
-          // do nothing. just confirming the submission.
-          break;
+            // do nothing. just confirming the submission.
+            break;
           case 'disable':
-          exceptions.push(window.location.href);
-          save();
-          break;
+            exceptions.push(window.location.href);
+            save();
+            break;
           default:
-          event.preventDefault();
-          return false;
-          break;
+            event.preventDefault();
+            return false;
+            break;
         }
       }
       else {
