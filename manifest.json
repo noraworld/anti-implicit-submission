@@ -13,7 +13,5 @@
     "all_frames": true,
     "matches": ["<all_urls>"],
     "js": ["src/js/inject.js"]
-  }],
-
-  "options_page": "src/options.html"
+  }]
 }

@@ -2,63 +2,44 @@
 
   'use strict';
 
-  let exceptions = [];
-  let key = null;
-  let isPressEnterTwice = false;
+  // let exceptions = [];
+  // let key = null;
+  // let isPressEnterTwice = false;
+  let unlocked = false;
+  // let firstUnlock = false;
+  let isPressSuperEnter = false;
 
-  chrome.storage.sync.get(function(storage) {
-    if (storage.exceptions === undefined) {
-      save();
+  window.addEventListener('keydown', function keyfunc(event) {
+    if (document.activeElement.nodeName === 'INPUT') {
+      if (event.metaKey && event.key === 'Enter') {
+        console.log('command + enter');
+        isPressSuperEnter = true;
+      }
+      else if (event.key === 'Enter' && !unlocked) {
+        console.log('enter');
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return false;
+      }
+      else {
+        isPressSuperEnter = false;
+        unlocked = false;
+      }
     }
-    else {
-      exceptions = storage.exceptions;
+  }, true);
+
+  window.addEventListener('keyup', function(event) {
+    if (document.activeElement.nodeName === 'INPUT') {
+      if (isPressSuperEnter && event.key === 'Enter') {
+        unlocked = true;
+        console.log('unlocked!');
+      }
+      else {
+        unlocked = false;
+        console.log('locked...');
+      }
     }
   });
-
-  window.addEventListener('keydown', function(event) {
-    if (document.activeElement.nodeName === 'INPUT') {
-      if ((key === 'Enter') && (event.key === 'Enter')) {
-        isPressEnterTwice = true;
-      }
-      else {
-        isPressEnterTwice = false;
-      }
-      key = event.key;
-
-      if ((isPressEnterTwice === false) && (event.key === 'Enter') && (exceptions.indexOf(window.location.href) < 0)) {
-        event.preventDefault();
-        return false;
-      }
-    }
-  }, true);
-
-  window.addEventListener('submit', function(event) {
-    if (exceptions.indexOf(window.location.href) < 0) {
-      if (isPressEnterTwice) {
-        confirm = window.prompt('Are you sure?');
-        switch (confirm) {
-          case 'sure':
-            // do nothing. just confirming the submission.
-            break;
-          case 'disable':
-            exceptions.unshift(window.location.href);
-            save();
-            break;
-          default:
-            event.preventDefault();
-            return false;
-            break;
-        }
-      }
-      else {
-        event.preventDefault();
-        return false;
-      }
-    }
-  }, true);
-
-  function save() {
-    chrome.storage.sync.set({exceptions: exceptions});
-  }
 
 })();
