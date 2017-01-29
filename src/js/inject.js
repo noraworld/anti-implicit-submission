@@ -47,4 +47,5 @@
     }
   }, true);
 
+  chrome.runtime.sendMessage({load: true}, function(response) {});
 })();
