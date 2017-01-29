@@ -11,9 +11,13 @@
 
   window.addEventListener('keydown', function keyfunc(event) {
     if (document.activeElement.nodeName === 'INPUT') {
-      if (event.metaKey && event.key === 'Enter') {
+      if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter') {
         console.log('command + enter');
         isPressSuperEnter = true;
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return false;
       }
       else if (event.key === 'Enter' && !unlocked) {
         console.log('enter');
@@ -40,6 +44,6 @@
         console.log('locked...');
       }
     }
-  });
+  }, true);
 
 })();
