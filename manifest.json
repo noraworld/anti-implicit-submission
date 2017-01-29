@@ -8,7 +8,7 @@
   "content_scripts": [{
     "all_frames": true,
     "matches": ["<all_urls>"],
-    "js": ["src/inject.js"]
+    "js": ["src/js/inject.js"]
   }],
 
   "permissions": [
