@@ -26,6 +26,11 @@
         event.stopImmediatePropagation();
         return false;
       }
+      else if (event.key === 'Enter' && unlocked) {
+        console.log('submit!');
+        isPressSuperEnter = false;
+        unlocked = false;
+      }
       else {
         isPressSuperEnter = false;
         unlocked = false;
