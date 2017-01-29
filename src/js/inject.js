@@ -41,7 +41,7 @@
             // do nothing. just confirming the submission.
             break;
           case 'disable':
-            exceptions.push(window.location.href);
+            exceptions.unshift(window.location.href);
             save();
             break;
           default:

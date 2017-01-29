@@ -5,13 +5,15 @@
   "description": "Prevent to submit forms with the enter key",
   "homepage_url": "https://github.com/noraworld/anti-implicit-submission",
 
+  "permissions": [
+    "storage"
+  ],
+
   "content_scripts": [{
     "all_frames": true,
     "matches": ["<all_urls>"],
     "js": ["src/js/inject.js"]
   }],
 
-  "permissions": [
-    "storage"
-  ]
+  "options_page": "src/options.html"
 }
