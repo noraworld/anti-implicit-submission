@@ -9,5 +9,9 @@
     "all_frames": true,
     "matches": ["<all_urls>"],
     "js": ["src/inject.js"]
-  }]
+  }],
+
+  "permissions": [
+    "storage"
+  ]
 }
