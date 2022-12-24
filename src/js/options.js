@@ -24,10 +24,13 @@
       location.reload();
     });
 
+    $(document).on('click', '.edit', function() {
+
+    })
+
     $(document).on('click', '.delete', function() {
       let index = $(this).parent().children('.index').text() - 1;
-      exceptions.splice(index, 1);
-      save();
+      del(index);
       location.reload();
     });
   }
@@ -41,7 +44,11 @@
         exceptions = storage.exceptions;
       }
       for (var i = 0; i < exceptions.length; i++) {
-        $('.exception-list').append('<tr><td class="index">' + (i + 1) + '</td><td class="value">' + exceptions[i] + '</td><td class="delete"><button type="button">Delete</button></td></tr>');
+        var list = $('<tr><td class="index">' + (i + 1) + '</td><td class="value"><input type="text" class="url"></td><td class="delete"><button type="button">Delete</button></td></tr>');
+        $('.exception-list').append(list);
+        list.ready(function() {
+          
+        });
       }
     });
   }
@@ -49,6 +56,15 @@
   function add(url) {
     exceptions.unshift(url.val());
     save();
+  }
+
+  function del(index) {
+    exceptions.splice(index, 1);
+    save();
+  }
+
+  function edit() {
+
   }
 
   function save() {
